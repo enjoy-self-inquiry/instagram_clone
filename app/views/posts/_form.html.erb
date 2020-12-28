@@ -1,7 +1,5 @@
 <%= form_with(model: post, local: true, url:confirm_posts_path) do |form| %>
   <div class="field">
-    <%= form.label :image %>
-    
     <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
     <%= form.label :content %>
     <%= form.text_field :content %>
