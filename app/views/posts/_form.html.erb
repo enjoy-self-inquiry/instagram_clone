@@ -1,25 +1,13 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+<%= form_with(model: post, local: true, url:confirm_posts_path) do |form| %>
   <div class="field">
     <%= form.label :image %>
+    
+    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
     <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
