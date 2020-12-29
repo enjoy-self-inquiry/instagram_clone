@@ -17,15 +17,15 @@ class PostsController < ApplicationController
   end
 
   def confirm
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+    render :new if @post.invalid?
   end
 
   def edit
   end
 
   def create
-    @post = Post.new(post_params)
-
+    @post = current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
         ConfirmMailer.confirm_mail(@post).deliver
@@ -59,11 +59,11 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:content, :image, :image_cache)
-    end
+  def post_params
+    params.require(:post).permit(:content, :image, :image_cache)
+  end
 end
