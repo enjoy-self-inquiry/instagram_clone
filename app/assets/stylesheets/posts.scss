@@ -1,0 +1,49 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 70px 0px;
+}
+
+.content {
+  border: solid;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.pic-container {
+  text-align: center;
+}
+
+.pic {
+  width: 80%;
+  height: 80%;
+
+}
+
+.margin {
+  margin-right: 20px;
+}
+
+.field {
+  display: none;
+}
+
+.submit-btn, .reject-btn {
+  border: transparent;
+  background-color: transparent;
+}
+
+#post_image {
+  display: none;
+}
+
+h2 {
+  font-size: 26px;
+  text-align: center;
+}
+
+label {
+  cursor: pointer;
+  cursor: hand;
+}

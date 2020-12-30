@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user.name %></td>
-        <td><%= post.content %></td>
-        <td><%= image_tag post.image.url %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+<div class="container">
+  <h2 class="title">投稿一覧</h2>
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-md-12 content">
+            <br>
+            <div class="pic-container">
+              <% if post.image.url %>
+              <%= image_tag post.image.url, class:"pic" %>
+              <% end %>
+            </div>
+            <br>
+              <i class="fas fa-clock fa-lg"></i><%= post.updated_at.strftime("%Y-%m-%d %H:%M") %>
+            <br><br>
+              <i class="fas fa-user-alt fa-lg"></i><%= post.user.name %>
+            <br><br>
+              <i class="far fa-comment-dots fa-lg"></i><%= post.content %>
+            <br><br>
+              <%= link_to post_path(post.id), title:"more detail" do %>
+                <i class="fas fa-info-circle margin fa-lg"></i>
+              <% end %>
+              <% if post.user.id == current_user.id %>
+                <%= link_to edit_post_path(post.id), data: { confirm: '本当に編集していいですか？' }, title:"edit" do %>
+                  <i class="far fa-edit margin fa-lg"></i>
+                <% end %>
+                <%= link_to post_path(post.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, title:"delete" do %>
+                  <i class="far fa-trash-alt margin fa-lg"></i>
+                <% end %>
+              <% end %>
+            <br>
+          </div>
+        <% end %>
+      </div>
+</div>

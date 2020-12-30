@@ -1,24 +1,43 @@
-<h1>Sign up</h1>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="container">
+  <h2>Sign up</h2>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Create my account" %>
-<% end %>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <i class="fas fa-signature fa-lg"></i>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br>
+      <i class="fas fa-at fa-lg"></i>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <br>
+      <label>
+        <i class="fas fa-user-astronaut fa-lg"></i>
+        <div class="field">
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+        </div>
+      </label>
+      <br>
+      <i class="fas fa-key fa-lg"></i>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <br>
+      <i class="fas fa-key fa-lg second-key"></i>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+      <br>
+      <br>
+      <%= button_tag type: "submit", class: "submit-btn", title: "Submit" do %>
+      <i class="fas fa-user-plus fa-2x"></i>
+      <% end %>
+    <% end %>
+</div>

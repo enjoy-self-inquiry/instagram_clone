@@ -1,12 +1,34 @@
-<%= form_with(model: post, local: true, url:confirm_posts_path) do |form| %>
-  <div class="field">
-    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
+<%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="post_title">
+    <i class="far fa-comment-dots fa-lg"></i>
+      <%= form.label :content %>
+      <%= form.text_field :content %>
   </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= image_tag @post.image.url %>
+  <br>
+  <label>
+    <i class="fas fa-image fa-lg"></i>
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+  </label>
+  <br>
+  <%= button_tag type: "submit", class: "submit-btn", title: "Submit" do %>
+    <i class="fas fa-paper-plane fa-lg"></i>
+  <% end %>
+  |
+  <%= link_to posts_path, title: "back" do %>
+    <i class="fas fa-backspace fa-lg"></i>
+  <% end %>
 <% end %>
