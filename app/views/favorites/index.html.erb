@@ -1,0 +1,9 @@
+<p>
+  <strong>Favorites:</strong>
+  <% for post in @posts %>
+    <% if post.image && post.image.url %>
+      <%= image_tag post.image.url %>
+    <% end %>
+  <% end %>
+</p>
+<%= link_to 'Back', posts_path %>

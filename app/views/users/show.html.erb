@@ -1,4 +1,5 @@
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
 <p>プロフ画像: <%= image_tag @user.image.url %></p>
+<td><%= link_to 'favorites', user_favorites_path(@user) %></td>
 <td><%= link_to 'Edit', edit_user_path(@user) %></td>
