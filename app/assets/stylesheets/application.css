@@ -50,6 +50,17 @@
   text-align: center;
 }
 
+.avator {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.pic-container {
+  text-align: center;
+}
+
 body {
   background-color: #B9C4DB;
   font-family: 'Kosugi Maru', sans-serif;

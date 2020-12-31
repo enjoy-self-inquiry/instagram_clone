@@ -1,9 +1,17 @@
-<p>
-  <strong>Favorites:</strong>
-  <% for post in @posts %>
-    <% if post.image && post.image.url %>
-      <%= image_tag post.image.url %>
-    <% end %>
-  <% end %>
-</p>
-<%= link_to 'Back', posts_path %>
+<div class="container">
+    <h2><i class="fas fa-thumbs-up"></i><i class="fas fa-list fa-1x"></i>Favorites:</h2>
+    <div class="pic-container">
+    <% for post in @posts %>
+      <% if post.image && post.image.url %>
+        <%= image_tag post.image.url, width:"200"%>
+        <br><br>
+          <i class="far fa-comment-dots fa-lg"></i><%= post.content %>
+        <% end %>
+        <% end %>
+        <br>
+        <br>
+        <%= link_to posts_path, title: "back" do %>
+          <i class="fas fa-backspace fa-lg"></i>
+        <% end %>
+              </div>
+</div>
