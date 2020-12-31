@@ -1,8 +1,8 @@
 <div class="container">
   <div class="pic-container">
     <h2>投稿詳細</h2>
-    <p><i class="far fa-comment-dots fa-lg"></i><%= @post.content %></p>
     <p><i class="fas fa-image fa-lg"></i><%= image_tag @post.image.url, width:"300" %></p>
+    <p><i class="far fa-comment-dots fa-lg"></i><%= @post.content %></p>
     <br>
     <br>
     <% if @post.user.id == current_user.id %>

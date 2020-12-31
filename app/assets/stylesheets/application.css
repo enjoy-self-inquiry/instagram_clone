@@ -20,16 +20,16 @@
   position: fixed;
   height: 70px;
   width: 100%;
-  background-color: #3b5998;
+  background-color: #19191a;
   z-index: 100;
 }
 
 .fas, .far {
-  color: #3b5998;
+  color: #949494;
 }
 
 .second-key {
-  color:#1da1f2;
+  color:#909090;
 }
 
 .white {
@@ -62,6 +62,10 @@
 }
 
 body {
-  background-color: #B9C4DB;
+  background-color: #2b2c32;
   font-family: 'Kosugi Maru', sans-serif;
+  color: white;
+}
+input {
+color: black;
 }
