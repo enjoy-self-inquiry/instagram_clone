@@ -4,7 +4,6 @@
   <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
     <%= form.hidden_field :content %>
     <p><i class="far fa-comment-dots fa-lg"></i>Content:  <%= @post.content %></p>
-    
     <%= form.label :image do %>
       <i class="fas fa-image fa-2x"></i>
       <% end %>

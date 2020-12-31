@@ -1,20 +1,20 @@
 <div class="container">
   <h2><i class="fas fa-user-astronaut fa-lg"></i>UserName:<%= @user.name %></h2>
   <div class="pic-container">
-  <%= image_tag @user.image.url, width:"200", class:"avator" %>
-  <p><i class="fas fa-at fa-lg"></i><%= @user.email %></p>
-  <br>
-  <br>
-  <%= link_to user_favorites_path(@user), title:"favorites" do %>
-    <i class="fas fa-thumbs-up fa-lg"></i><i class="fas fa-list"></i>
-  <% end %>
-|
-  <%= link_to edit_user_path(@user), title:"edit" do%>
-  <i class="far fa-edit fa-lg"></i>
-  <% end %>
-|
-  <%= link_to posts_path, title: "back" do %>
-    <i class="fas fa-backspace fa-lg"></i>
-  <% end %>
+    <%= image_tag @user.image.url, width:"200", class:"avator" %>
+    <p><i class="fas fa-at fa-lg"></i><%= @user.email %></p>
+    <br>
+    <br>
+    <%= link_to user_favorites_path(@user), title:"favorites" do %>
+      <i class="fas fa-thumbs-up fa-lg"></i><i class="fas fa-list"></i>
+    <% end %>
+    |
+    <%= link_to edit_user_path(@user), title:"edit" do%>
+      <i class="far fa-edit fa-lg"></i>
+    <% end %>
+    |
+    <%= link_to posts_path, title: "back" do %>
+      <i class="fas fa-backspace fa-lg"></i>
+    <% end %>
   </div>
 </div>

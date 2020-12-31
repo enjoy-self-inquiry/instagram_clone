@@ -7,31 +7,29 @@
           <h2><%= @post.errors.count %>件のエラーがあります。</h2>
           <ul>
             <% @post.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+              <li><%= msg %></li>
             <% end %>
           </ul>
         </div>
-        <% end %>
-
-          <i class="far fa-comment-dots fa-lg"></i>
-          <%= form.text_field :content %>
-
-        <label>
-          <i class="fas fa-image fa-lg"></i>
-          <div class="field">
-            <%= form.label :image %>
-            <%= form.file_field :image %>
-          </div>
-        </label>
-        <br>
-        <br>
-        <%= button_tag type: "submit", class: "submit-btn", title: "Submit" do %>
+      <% end %>
+      <i class="far fa-comment-dots fa-lg"></i>
+      <%= form.text_field :content %>
+      <label>
+        <i class="fas fa-image fa-lg"></i>
+        <div class="field">
+          <%= form.label :image %>
+          <%= form.file_field :image %>
+        </div>
+      </label>
+      <br>
+      <br>
+      <%= button_tag type: "submit", class: "submit-btn", title: "Submit" do %>
         <i class="fas fa-paper-plane fa-lg"></i>
-        <% end %>
-        |
-        <%= link_to posts_path, title:"back to top" do %>
+      <% end %>
+      |
+      <%= link_to posts_path, title:"back to top" do %>
         <i class="fas fa-undo fa-lg"></i>
-        <% end %>
-        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>

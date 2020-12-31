@@ -5,7 +5,7 @@
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -37,7 +37,7 @@
       <br>
       <br>
       <%= button_tag type: "submit", class: "submit-btn", title: "Submit" do %>
-      <i class="fas fa-user-plus fa-2x"></i>
+        <i class="fas fa-user-plus fa-2x"></i>
       <% end %>
     <% end %>
 </div>
