@@ -1,22 +1,25 @@
 <div class="container">
-  <h2>投稿詳細</h2>
-  <p><i class="far fa-comment-dots fa-lg"></i>Content: <%= @post.content %></p>
-  <p><i class="fas fa-image fa-lg"></i>Image: <%= image_tag @post.image.url %></p>
-  <br><br>
-  <% if @post.user.id == current_user.id %>
-    <%= link_to edit_post_path(@post), title:"edit" do %>
-      <i class="far fa-edit fa-lg"></i>
+  <div class="pic-container">
+    <h2>投稿詳細</h2>
+    <p><i class="far fa-comment-dots fa-lg"></i><%= @post.content %></p>
+    <p><i class="fas fa-image fa-lg"></i><%= image_tag @post.image.url, width:"300" %></p>
+    <br>
+    <br>
+    <% if @post.user.id == current_user.id %>
+      <%= link_to edit_post_path(@post), title:"edit" do %>
+        <i class="far fa-edit fa-lg"></i>
       <% end %>|
-      <% end %>
-      <%= link_to posts_path, title:"back to top" do %>
+    <% end %>
+    <%= link_to posts_path, title:"back to top" do %>
       <i class="fas fa-undo fa-lg"></i>
-      <% end %>
-      <% unless @post.user_id == current_user.id %>
+    <% end %>
+    <% unless @post.user_id == current_user.id %>
       |
       <% if @favorite.present? %>
-      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+        <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
       <% else %>
-      <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+        <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
       <% end %>
-      <% end %>
+    <% end %>
+  </div>
 </div>

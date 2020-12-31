@@ -23,6 +23,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if @post.user == current_user
+      render :edit
+    else
+      redirect_to posts_path
+    end
   end
 
   def create

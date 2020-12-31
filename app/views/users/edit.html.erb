@@ -5,39 +5,45 @@
         <h2><%= @user.errors.count %>件のエラーがあります。</h2>
         <ul>
           <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+            <li><%= msg %></li>
           <% end %>
         </ul>
       </div>
-      <% end %>
-      <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+    <% end %>
+    <div class="pic-container">
+      <%= image_tag(@user.image.url, width:"200", class:"avator") if @user.image && @user.image.url %>
       <br>
       <label>
-        <i class="fas fa-image fa-lg"></i>
+        <i class="fas fa-user-astronaut fa-lg"></i>
         <div class="field">
           <%= form.label :image %>
           <%= form.file_field :image %>
         </div>
       </label>
       <br>
-      <%= form.label :name %>
+      <i class="fas fa-signature fa-lg"></i>
       <%= form.text_field :name %>
       <br>
-      <%= form.label :email %>
+      <br>
+      <i class="fas fa-at fa-lg"></i>
       <%= form.email_field :email %>
       <br>
-      <%= form.label :password %>
+      <br>
+      <i class="fas fa-key fa-lg"></i>
       <%= form.password_field :password %>
-      <%= form.label :password_confirmation %>
+      <br>
+      <br>
+      <i class="fas fa-key fa-lg second-key"></i>
       <%= form.password_field :password_confirmation %>
       <br>
       <br>
       <%= button_tag type: "submit", class: "submit-btn", title: "Submit" do %>
-      <i class="fas fa-user-astronaut fa-lg"></i>
+        <i class="fas fa-user-check fa-lg"></i>
       <% end %>
       |
       <%= link_to user_path(@user.id), title: "back" do %>
-      <i class="fas fa-backspace fa-lg"></i>
+        <i class="fas fa-backspace fa-lg"></i>
       <% end %>
-      <% end %>
+    </div>
+  <% end %>
 </div>
