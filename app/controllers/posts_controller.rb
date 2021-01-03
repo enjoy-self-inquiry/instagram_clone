@@ -23,12 +23,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    if @post.user == current_user
-      render :edit
-    else
-      redirect_to posts_path
+    @post = Post.find(params[:id])
+    if @post.user != current_user
+      redirect_to posts_path, alert: "不正なアクセスです。"
     end
   end
+
 
   def create
     @post = current_user.posts.build(post_params)
